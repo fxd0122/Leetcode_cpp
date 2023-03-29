@@ -14,7 +14,7 @@
 
 ##### leetcode-142: 环形链表 II
 维护了额外的vector
-- [X] 3.28 快慢指针
+- [X] 3.28 快慢指针 4.2
 
 ##### leetcode-242: 有效的字母异位词
 数组哈希
@@ -28,4 +28,13 @@ hash 动态更新hash table的状态
 ##### leetcode-202: 快乐树
 数组hash
 
+##### leetcode-454: 四数相加 II
+两个unordered_map
+
+##### leetcode-383: 赎金信
+数组hash
+
+##### leetcode-15: 三数之和
+双指针加hash，去重比较麻烦，三指针更好做
+- [X] 3.29 再写一遍三指针 4.2
 

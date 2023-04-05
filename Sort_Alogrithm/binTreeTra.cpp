@@ -92,8 +92,44 @@ vector<int> noneRecPostTraversal(TreeNode* root){
 		if (temp->left) s.push(temp->left);
 		if (temp->right) s.push(temp->right);
 	}
-	reverse(result.begin(), result.end());
+	reverse(ans.begin(), ans.end());
 	return ans;
+}
+
+vector<int> uniformTraversal(TreeNode* root){
+	stack<TreeNode*> s;
+	vector<int> ans;
+	if(root != nullptr) s.push(root);
+	while(!s.empty()){
+		TreeNode* temp = s.top(); //访问节点
+		if(temp != nullptr){
+			s.pop();
+
+			// 前序遍历
+			// if(temp->right) s.push(temp->right);
+			// if(temp->left) s.push(temp->left);
+			// s.push(temp); // push需要处理的节点
+			// s.push(nullptr); // push标志节点
+
+			// 中序遍历
+			if(temp->right) s.push(temp->right);
+			s.push(temp);
+			s.push(nullptr);
+			if(temp->left) s.push(temp->left);
+
+			// 后序遍历
+			// s.push(temp); // push需要处理的节点
+			// s.push(nullptr); // push标志节点
+			// if(temp->right) s.push(temp->right);
+			// if(temp->left) s.push(temp->left);
+		}
+		else{
+			s.pop();
+			temp = s.top();
+			s.pop();
+			ans.push_back(temp->val);
+		}
+	}
 }
 
 int main() {

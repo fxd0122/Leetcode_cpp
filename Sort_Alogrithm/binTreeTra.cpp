@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -42,6 +43,57 @@ vector<int> BinTreeTraversal(TreeNode* root) {
 	PostTraversal(post_res, root);
 
 	return pre_res;
+}
+
+vector<int> noneRecPreTraversal(TreeNode* root){
+	stack<TreeNode*> s;
+	vector<int> ans;
+	if(root == nullptr) return ans;
+	s.push(root);
+	while(!s.empty()){
+		TreeNode* temp = s.top();
+		ans.push_back(temp->val);
+		s.pop();
+		if (temp->right) s.push(temp->right);
+		if (temp->left) s.push(temp->left);
+	}
+	return ans;
+}
+
+vector<int> noneRecMidTraversal(TreeNode* root){
+	stack<TreeNode*> s;
+	vector<int> ans;
+	if(root == nullptr) return ans;
+	TreeNode* cur = root;
+	while(cur != nullptr || !s.empty()){
+		if(cur != nullptr){
+			s.push(cur);
+			cur = cur->left;
+		}
+		else{
+			cur = s.top();
+			s.pop();
+			ans.push_back(cur->val);
+			cur = cur->right;
+		}
+	}
+	return ans;
+}
+
+vector<int> noneRecPostTraversal(TreeNode* root){
+	stack<TreeNode*> s;
+	vector<int> ans;
+	if(root == nullptr) return ans;
+	s.push(root);
+	while(!s.empty()){
+		TreeNode* temp = s.top();
+		ans.push_back(temp->val);
+		s.pop();
+		if (temp->left) s.push(temp->left);
+		if (temp->right) s.push(temp->right);
+	}
+	reverse(result.begin(), result.end());
+	return ans;
 }
 
 int main() {

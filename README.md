@@ -89,3 +89,10 @@ KMP算法的前缀表的应用，利用前缀表和重复子串的性质来判�
 ##### leetcode-98: 验证二叉搜索树
 中序遍历 && 递归记录每个节点需要满足的上下界 [递归解法](https://leetcode.cn/problems/validate-binary-search-tree/solutions/2225615/liang-xing-di-gui-jie-jue-fang-fa-by-fxd-srg3/)
 
+##### leetcode-98: 二叉搜索树中的众数
+递归遍历，把双指针用于中序遍历， 迭代也能写
+
+##### leetcode-236: 二叉树的最近公共祖先
+后序遍历递归，仔细想想返回值的逻辑！
+- [ ] 再做一遍
+

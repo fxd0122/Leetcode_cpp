@@ -110,4 +110,4 @@ KMP算法的前缀表的应用，利用前缀表和重复子串的性质来判�
 倒中序遍历
 
 ##### 组合回溯问题
-leetcode-17, leetcode-77, leetcode-216
+leetcode-17, leetcode-77, leetcode-216, leetcode-39

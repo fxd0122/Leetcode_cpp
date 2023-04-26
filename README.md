@@ -114,5 +114,10 @@ leetcode-17, leetcode-77, leetcode-216, leetcode-39, leetcode-40, \
 字符串切割问题（子序列问题）：leetcode-131, leetcode-93, leetcode-491 \
 子集问题：leetcode-90 \
 排列问题：leetcode-48, leetcode-47 \
-八皇后问题
+八皇后问题, 数独问题
+
+##### 贪心问题
+leetcode-455 \
+leetcode-376: 问题转换 \
+leetcode-53: 贪心怎么贪
 

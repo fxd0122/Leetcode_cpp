@@ -120,7 +120,8 @@ leetcode-17, leetcode-77, leetcode-216, leetcode-39, leetcode-40, \
 leetcode-455 \
 leetcode-376: 问题转换 \
 leetcode-53: 贪心怎么贪
-leetcode-55, leetcode-122, leetcode-1005, leetcode-45, leetcode134, \
-leetcode-135: 同时比较左右会顾此失彼，先确定一边，是一种思路
+leetcode-55, leetcode-122, leetcode-1005, leetcode-45, leetcode134, leetcode-860\
+leetcode-135: 同时比较左右会顾此失彼，先确定一边，是一种思路, leetcode-406 类似解法 注意容器的底层实现
+
 
 

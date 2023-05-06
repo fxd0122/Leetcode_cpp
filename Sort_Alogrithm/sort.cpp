@@ -111,6 +111,52 @@ void HeapSort(vector<int>& array) {
 	}
 }
 
+/* QuickSort */
+int Partition(vector<int> &array, int begin, int end) {
+	int key = (rand() % (end - begin + 1)) + begin; // 随机选择一个key
+	swap(array[key], array[end]);
+	int value = array[end];
+	int i = begin - 1;
+	for (int j = begin; j < end; j++) {
+		if (array[j] <= value) {
+			i++;
+			swap(array[i], array[j]);
+		}
+	}
+	swap(array[i + 1], array[end]);
+	return i + 1;
+}
+
+void QuickSort(vector<int>& array, int begin, int end) {
+	if (begin < end) {
+		int p = Partition(array, begin, end);
+		QuickSort(array, begin, p - 1);
+		QuickSort(array, p + 1, end);
+	}
+}
+
+void TailRecurQuickSort(vector<int>& array, int begin, int end) {
+	while (begin < end) {
+		int p = Partition(array, begin, end);
+		TailRecurQuickSort(array, begin, p - 1);
+		begin++;
+	}
+}
+
+void TailRecurQuickSortV1(vector<int>& array, int begin, int end) {
+	while (begin < end) {
+		int p = Partition(array, begin, end);
+		if (p - begin <= end - p) {
+			TailRecurQuickSortV1(array, begin, p - 1);
+			begin = p + 1;
+		}
+		else {
+			TailRecurQuickSortV1(array, p + 1, end);
+			end = p - 1;
+		}
+	}
+}
+
 
 int main(){
     vector<int> nums = {4, 2, 7, 9, 1, 5, 4};

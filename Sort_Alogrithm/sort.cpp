@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+/* InsertionSort */
 void InsertionSort(vector<int>& nums){
     for(int i=1; i<nums.size(); i++){
         int j = i-1;
@@ -14,6 +15,7 @@ void InsertionSort(vector<int>& nums){
     }
 }
 
+/* MergeSort */
 void Merge(vector<int>& nums, int left, int right, int mid){
     vector<int> L;
     for(int i=0; i<mid-left+1; i++){
@@ -44,6 +46,71 @@ void MergeSort(vector<int>& nums, int left, int right){
     MergeSort(nums, mid+1, right);
     Merge(nums, left, right, mid);
 }
+
+/* HeapSort */
+int LeftChild(int idx) { // heap下标从1开始
+	return 2 * (idx + 1) - 1;
+}
+
+int RightChild(int idx) {
+	return 2 * (idx + 1);
+}
+
+void MaxHeapify(vector<int> &array, int idx, int heap_size) {
+	int left = LeftChild(idx);
+	int right = RightChild(idx);
+	int largest = idx;
+	if (left < heap_size && array[left] > array[idx]) {
+		largest = left;
+	}
+	if (right < heap_size && array[right] > array[largest]) {
+		largest = right;
+	}
+	if (largest != idx) {
+		swap(array[idx], array[largest]);
+		MaxHeapify(array, largest, heap_size);
+	}
+	else return;
+}
+
+void MaxHeapifyV1(vector<int>& array, int idx, int heap_size) {
+	int cur_idx = idx;
+	int largest = cur_idx;
+	while (LeftChild(cur_idx) < heap_size) {
+		int left = LeftChild(cur_idx);
+		int right = RightChild(cur_idx);
+		if (array[left] > array[cur_idx]) {
+			largest = left;
+		}
+		if (right<heap_size && array[right]>array[largest]) {
+			largest = right;
+		}
+		if (largest != cur_idx) {
+			swap(array[largest], array[cur_idx]);
+			cur_idx = largest;
+		}
+		else break;
+	}
+}
+
+void BuildMaxHeap(vector<int>& array) {
+	int heap_size = array.size();
+	for (int i = array.size() / 2 - 1; i >= 0; i--) {
+		MaxHeapify(array, i, heap_size);
+	}
+}
+
+void HeapSort(vector<int>& array) {
+	BuildMaxHeap(array);
+	int heap_size = array.size();
+	for (int i = array.size() - 1; i >= 1; i--) {
+		swap(array[0], array[i]);
+		heap_size = heap_size - 1;
+		//MaxHeapify(array, 0, heap_size);
+		MaxHeapifyV1(array, 0, heap_size);
+	}
+}
+
 
 int main(){
     vector<int> nums = {4, 2, 7, 9, 1, 5, 4};

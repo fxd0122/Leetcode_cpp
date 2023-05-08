@@ -123,7 +123,13 @@ leetcode-53: 贪心怎么贪
 leetcode-55, leetcode-122, leetcode-1005, leetcode-45, leetcode134, leetcode-860\
 leetcode-135: 同时比较左右会顾此失彼，先确定一边，是一种思路, leetcode-406 类似解法 注意容器的底层实现, \
 leetcode-452, leetcode-435 区间问题， \
-leetcode-763. leetcode-56, leetcdoe-738
+leetcode-763. leetcode-56, leetcdoe-738 \
+leetcode-968: 代码实现问题多想想，状态转移
+
+### DP问题
+##### 经典题型：
+leetcode-509: 斐波那契数    leetcode-70：爬楼梯 \
+leetcode-746: 使用最小花费爬楼梯： 搞清楚dp[i]表示啥！
 
 
 

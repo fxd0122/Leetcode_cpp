@@ -128,7 +128,9 @@ leetcode-968: 代码实现问题多想想，状态转移
 
 ### DP问题
 ##### 经典题型：
-leetcode-509: 斐波那契数    leetcode-70：爬楼梯 \
+leetcode-509: 斐波那契数    leetcode-70：爬楼梯\
+leetcode-62&63: 不同路径    leetcode-343: 整数拆分，不像是dp更像是数学的不等式\
+leetcode-96: 不同的二叉搜索树，递推公式的推导！\
 leetcode-746: 使用最小花费爬楼梯： 搞清楚dp[i]表示啥！
 
 

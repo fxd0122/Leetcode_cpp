@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.wxml": "html",
+        "*.wxss": "scss",
+        "vector": "cpp",
+        "stack": "cpp",
+        "xutility": "cpp"
+    }
+}

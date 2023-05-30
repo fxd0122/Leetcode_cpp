@@ -119,7 +119,7 @@ leetcode-17, leetcode-77, leetcode-216, leetcode-39, leetcode-40, \
 ##### 贪心问题
 leetcode-455 \
 leetcode-376: 问题转换 \
-leetcode-53: 贪心怎么贪
+leetcode-53: 贪心怎么贪 \
 leetcode-55, leetcode-122, leetcode-1005, leetcode-45, leetcode134, leetcode-860\
 leetcode-135: 同时比较左右会顾此失彼，先确定一边，是一种思路, leetcode-406 类似解法 注意容器的底层实现, \
 leetcode-452, leetcode-435 区间问题， \
@@ -159,6 +159,10 @@ leetcode-714: 分析清楚状态就好，持有股票和不持有股票两种状
 leetcode-300: dp数组的含义，以nums[i]结尾的最大子序列长度 \
 leetcode-674: 简单题，连续的递增子序列 \
 leetcode-718: dp数组的定义问题，多想想 \
-leetcode-1143: 分析清楚递推公式
+leetcode-1143: 分析清楚递推公式 \
+leetcode-1035: 解法同1143最长公共子序列 \
+leetcode-53: dp[i]的定义问题，贪心解法忘记了！\
+
+
 
 

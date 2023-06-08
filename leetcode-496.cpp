@@ -1,18 +1,25 @@
 class Solution {
 public:
-    int findTargetSumWays(vector<int>& nums, int target) {
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i++) sum += nums[i];
-        if (abs(target) > sum) return 0; // 此时没有方案
-        if ((target + sum) % 2 == 1) return 0; // 此时没有方案
-        int bagSize = (target + sum) / 2;
-        vector<int> dp(bagSize + 1, 0);
-        dp[0] = 1;
-        for (int i = 0; i < nums.size(); i++) {
-            for (int j = bagSize; j >= nums[i]; j--) {
-                dp[j] += dp[j - nums[i]];
-            }
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> st;
+        vector<int> result(nums1.size(), -1);
+        if (nums1.size() == 0) return result;
+
+        unordered_map<int, int> umap; // key:下标元素，value：下标
+        for (int i = 0; i < nums1.size(); i++) {
+            umap[nums1[i]] = i;
         }
-        return dp[bagSize];
+        st.push(0);
+        for (int i = 1; i < nums2.size(); i++) {
+            while (!st.empty() && nums2[i] > nums2[st.top()]) {
+                if (umap.count(nums2[st.top()]) > 0) { // 看map里是否存在这个元素
+                    int index = umap[nums2[st.top()]]; // 根据map找到nums2[st.top()] 在 nums1中的下标
+                    result[index] = nums2[i];
+                }
+                st.pop();
+            }
+            st.push(i);
+        }
+        return result;
     }
 };

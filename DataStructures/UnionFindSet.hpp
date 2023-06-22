@@ -1,3 +1,6 @@
+#ifndef DATASTRUCTURES_UNIONFINDSET_H_
+#define DATASTRUCTURES_UNIONFINDSET_H_
+
 #include<vector>
 
 class UnionFindSet{
@@ -38,3 +41,4 @@ public:
     }
 };
 
+#endif

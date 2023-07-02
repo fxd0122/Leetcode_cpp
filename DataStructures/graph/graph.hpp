@@ -152,7 +152,28 @@ public:
         std::cout << "\nThe cost is: "<< dis[name2Index[d]] << std::endl;
     }
     
-    
+    void floyd(T s, T d){// DP
+        int n = name2Index.size();
+        int floyd_dis[MAXV][MAXV];
+        std::fill(floyd_dis[0], floyd_dis[0]+MAXV*MAXV, INF);
+        for(int i=0; i<n; i++){ // 初始化
+            for(int j=0; j<n; j++){
+                floyd_dis[i][j] = G[i][j];
+            }
+        }
+        for(int i=0; i<n; i++) floyd_dis[i][i] = 0;
+        for(int k=0; k<n; k++){
+            for(int i=0; i<n; i++){
+                for(int j=0; j<n; j++){
+                    if(floyd_dis[i][k]!=INF&&floyd_dis[k][j]!=INF&&floyd_dis[i][k]+floyd_dis[k][j]<floyd_dis[i][j]){
+                        floyd_dis[i][j] = floyd_dis[i][k]+floyd_dis[k][j];
+                    }
+                }
+            }
+        }
+        int distance = floyd_dis[name2Index[s]][name2Index[d]];
+        std::cout<<"The cost of path "<<s<<" to "<<d<<" is : "<<distance<<std::endl;
+    }
     
     void get(){
         std::cout << isDirection << std::endl;

@@ -177,3 +177,7 @@ leetcode-84: 单调栈，主要在于判断每个柱子能够扩张的最大面�
 ### 图
 leetcode-797: 普通dfs, leetcode-200: dfs或者bfs, leetcode-695: BFS, leetcode-1020: dfs, leetcode-130: dfs, leetcode-417: dfs \
 leetcode-2662: 建图+dijsktra
+
+### 位运算
+leetcode-231, leetcode-342, 
+

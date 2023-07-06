@@ -179,5 +179,5 @@ leetcode-797: 普通dfs, leetcode-200: dfs或者bfs, leetcode-695: BFS, leetcode
 leetcode-2662: 建图+dijsktra
 
 ### 位运算
-leetcode-231, leetcode-342, leetcode-191
+leetcode-231, leetcode-342, leetcode-191, leetcode-136, leetcode-461
 

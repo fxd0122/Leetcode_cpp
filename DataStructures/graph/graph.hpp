@@ -341,6 +341,121 @@ public:
         }
         std::cout << "\nThe cost is: "<< dis[name2Index[d]] << std::endl;
     }
+
+    bool Bellman_Ford(int s){
+        std::fill(dis, dis+MAXV, INF);
+        dis[s] = 0;
+        for(int i=0; i<name2Index.size()-1; i++){
+            int flag = 0;
+            for(int u=0; u<name2Index.size(); u++){
+                for(int j=0; j<adjL[u].size(); j++){
+                    int v = adjL[u][j].index;
+                    int w = adjL[u][j].w;
+                    if(dis[u] +  w < dis[v]){
+                        dis[v] = dis[u] + w;
+                        flag = 1;
+                    }
+                }
+            }
+            if(!flag) {
+                return true;
+                break;
+            }
+        }
+        for(int u=0; u<name2Index.size(); u++){
+            for(int j=0; j<adjL[u].size(); j++){
+                int v = adjL[u][j].index;
+                int w = adjL[u][j].w;
+                if(dis[u] + w < dis[v]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    void getBellmanFordRes(T s, T t){
+        int start_idx = name2Index[s];
+        int end_idx = name2Index[t];
+        bool noneCir = Bellman_Ford(start_idx);
+        for(int i=0; i<name2Index.size(); i++){
+            std::cout << dis[i] << " ";
+        }
+        std::cout<<"\nThe short cost from "<<s<<" to "<<t<<" is: "<<dis[end_idx]<<std::endl;
+        if(!noneCir){
+            std::cout<<"negative loop!\n";
+        }
+    }
+    
+    bool SPFA(int s){
+        int cnt[MAXV] = {0};
+        std::fill(dis, dis+MAXV, INF);
+        std::fill(vis, vis+MAXV, false);
+        std::queue<int> q;
+        q.push(s);
+        vis[s] = true;
+        while(!q.empty()){
+            int u = q.front();
+            q.pop();
+            vis[u] = false;
+            for(int j=0; j<adjL[u]; j++){
+                int v = adjL[u][j].index;
+                int w = adjL[u][j].w;
+                if(dis[u]+w<dis[v]){
+                    dis[v] = dis[u] + w;
+                    if(!vis[v]){
+                        q.push(v);
+                        vis[v] = true;
+                        cnt[v] += 1;
+                        if(cnt[v]>=name2Index.size()){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    void getSPFARes(T s, T t){
+        int start_idx = name2Index[s];
+        int end_idx = name2Index[t];
+        bool noneCir = Bellman_Ford(start_idx);
+        for(int i=0; i<name2Index.size(); i++){
+            std::cout << dis[i] << " ";
+        }
+        std::cout<<"\nThe short cost from "<<s<<" to "<<t<<" is: "<<dis[end_idx]<<std::endl;
+        if(!noneCir){
+            std::cout<<"negative loop!\n";
+        }
+    }
+
+        int prim(T s){
+        int ans = 0;
+        std::fill(vis, vis+MAXV, false);
+        std::fill(dis, dis+MAXV, INF);
+        vis[s] = true;
+        for(int i=0; i<name2Index.size(); i++){
+            int u=-1, min_dis = INF;
+            for(int j=0; j<name2Index.size(); j++){
+                if(!vis[j] && min_dis<dis[j]){
+                    u = j;
+                    min_dis = dis[j];
+                }
+            }
+            if(u == -1) return -1;
+            vis[u] = true;
+            ans += min_dis;
+            for(int j=0; j<adjL[u].size(); j++){
+                int v = adjL[u][j].index;
+                int w = adjL[u][j].w;
+                if(!vis[v] && w < dis[v]){
+                    dis[v] = w;
+                }
+            }
+        }
+        return ans;
+    }
     
     
 

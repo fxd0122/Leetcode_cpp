@@ -16,6 +16,16 @@ int main(){
     unsigned int temp = 1;
     temp = temp << 8;
     int flag = reg1 & temp;
+
+    unsigned int lowBit = 0xf;
+    unsigned int highBit = 0xff000000;
+
+    unsigned int tempHigh = reg2 & lowBit;
+    unsigned int tempLow  = reg3 & highBit;
+
+    unsigned int tempeture = (tempHigh << 8) + (tempLow >> 24);
+
     
+
     return 0;
 }

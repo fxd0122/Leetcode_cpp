@@ -4,6 +4,7 @@
         "*.wxss": "scss",
         "vector": "cpp",
         "stack": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "iostream": "cpp"
     }
 }

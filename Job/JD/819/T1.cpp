@@ -51,9 +51,9 @@ int main(){
         }
         if(eatBlack ^ eatWhite){
             if(eatBlack){
-                cout << "kou" << endl;
-            }else if(eatWhite){
                 cout << "yukan" << endl;
+            }else if(eatWhite){
+                cout << "kou" << endl;
             }
         }else{
             cout << "draw" << endl;
